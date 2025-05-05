@@ -1,74 +1,204 @@
+/* Variables para colores */
+:root {
+    --dark-bg-color: #1e1e1e;
+    --dark-container-bg: #2d2d2d;
+    --dark-text-color: #ffffff;
+    --dark-header-bg: #ff00ff;
+    --dark-header-text: #ffffff;
+    --dark-border-color: #555;
+    --dark-row-even-bg: #3a3a3a;
+    --dark-hover-bg: #555555;
+    --dark-code-bg: #444;
+    --dark-code-text: #00ff00;
+    --dark-title-color: #00ffff;
+    --dark-shadow-color: rgba(0, 255, 255, 0.5);
+    --dark-title-shadow: rgba(0, 255, 255, 0.7);
+
+    --light-bg-color: #f0f0f0;
+    --light-container-bg: #ffffff;
+    --light-text-color: #333333;
+    --light-header-bg: #4CAF50; /* Verde llamativo */
+    --light-header-text: #ffffff;
+    --light-border-color: #ccc;
+    --light-row-even-bg: #e0e0e0;
+    --light-hover-bg: #d0d0d0;
+    --light-code-bg: #eeeeee;
+    --light-code-text: #d32f2f; /* Rojo para el código */
+    --light-title-color: #1a73e8; /* Azul de Google */
+    --light-shadow-color: rgba(0, 0, 0, 0.1);
+    --light-title-shadow: rgba(26, 115, 232, 0.5); /* Sombra azul */
+}
+
+/* Estilos generales para el cuerpo y transiciones */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #1e1e1e; /* Fondo oscuro */
-    color: #ffffff; /* Texto blanco */
     margin: 0;
     padding: 20px;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column; /* Apila elementos verticalmente */
+    align-items: center;
     min-height: 100vh;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Transición suave para el tema */
 }
 
+/* Estilos para el contenedor principal */
 .container {
-    background-color: #2d2d2d; /* Contenedor un poco más claro */
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Sombra azul/cian llamativa */
     width: 100%;
     max-width: 1000px;
-    overflow-x: auto; /* Permite scroll horizontal si la tabla es muy ancha */
+    overflow-x: auto;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Transición suave */
 }
 
 h1 {
-    color: #00ffff; /* Cian llamativo para el título */
     text-align: center;
     margin-bottom: 30px;
-    text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+    transition: color 0.5s ease, text-shadow 0.5s ease; /* Transición suave */
 }
 
 table {
     width: 100%;
-    border-collapse: collapse; /* Elimina espacios entre bordes de celdas */
+    border-collapse: collapse;
     margin-top: 20px;
 }
 
 th, td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #555; /* Borde inferior sutil */
+    border-bottom: 1px solid; /* Usará el color de borde según el tema */
+    transition: font-size 0.2s ease, color 0.2s ease; /* Transición para el hover */
 }
 
 thead th {
-    background-color: #ff00ff; /* Magenta vibrante para el encabezado */
-    color: #ffffff;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Transición suave */
 }
 
-tbody tr:nth-child(even) {
-    background-color: #3a3a3a; /* Color de fila alternado */
+tbody tr:nth-child(even) td {
+    transition: background-color 0.5s ease; /* Transición suave */
 }
 
-tbody tr:hover {
-    background-color: #555555; /* Efecto hover */
-    transition: background-color 0.3s ease;
+/* Efecto hover en las celdas del cuerpo de la tabla */
+tbody td:hover {
+    font-size: 1.05em; /* Aumenta ligeramente el tamaño de la fuente */
+    /* El color cambiará según la variable CSS del tema */
 }
 
 td code {
-    background-color: #444; /* Fondo para el código */
-    color: #00ff00; /* Verde neón para el código */
     padding: 3px 6px;
     border-radius: 4px;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Transición suave */
 }
 
-/* Estilos para emojis si fuera necesario aplicar alguno específico */
-/* Por lo general, los emojis se ven bien por defecto, pero si quieres controlarlos: */
-/* td .emoji {
-    font-size: 1.2em;
-    vertical-align: middle;
-} */
+/* Estilo del botón de cambio de tema */
+#theme-toggle {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.05);
+}
+
+
+/* --- Estilos para el Modo Oscuro --- */
+body.dark-mode {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+body.dark-mode .container {
+    background-color: var(--dark-container-bg);
+    box-shadow: 0 0 20px var(--dark-shadow-color);
+}
+
+body.dark-mode h1 {
+    color: var(--dark-title-color);
+    text-shadow: 0 0 8px var(--dark-title-shadow);
+}
+
+body.dark-mode th, body.dark-mode td {
+     border-bottom-color: var(--dark-border-color);
+     color: var(--dark-text-color); /* Asegura que el color del texto base sea el del tema */
+}
+
+body.dark-mode tbody tr:nth-child(even) td {
+    background-color: var(--dark-row-even-bg);
+}
+
+body.dark-mode tbody tr:hover td {
+     background-color: var(--dark-hover-bg);
+     color: var(--dark-title-color); /* Color llamativo en hover para el modo oscuro */
+}
+
+body.dark-mode thead th {
+    background-color: var(--dark-header-bg);
+    color: var(--dark-header-text);
+}
+
+body.dark-mode td code {
+    background-color: var(--dark-code-bg);
+    color: var(--dark-code-text);
+}
+
+body.dark-mode #theme-toggle {
+    background-color: #ffffff;
+    color: #333;
+}
+
+
+/* --- Estilos para el Modo Claro --- */
+body.light-mode {
+    background-color: var(--light-bg-color);
+    color: var(--light-text-color);
+}
+
+body.light-mode .container {
+    background-color: var(--light-container-bg);
+    box-shadow: 0 0 15px var(--light-shadow-color);
+}
+
+body.light-mode h1 {
+    color: var(--light-title-color);
+     text-shadow: 0 0 5px var(--light-title-shadow);
+}
+
+body.light-mode th, body.light-mode td {
+     border-bottom-color: var(--light-border-color);
+     color: var(--light-text-color); /* Asegura que el color del texto base sea el del tema */
+}
+
+body.light-mode tbody tr:nth-child(even) td {
+    background-color: var(--light-row-even-bg);
+}
+
+body.light-mode tbody tr:hover td {
+     background-color: var(--light-hover-bg);
+     color: var(--light-header-bg); /* Color llamativo en hover para el modo claro (verde) */
+}
+
+body.light-mode thead th {
+    background-color: var(--light-header-bg);
+    color: var(--light-header-text);
+}
+
+body.light-mode td code {
+    background-color: var(--light-code-bg);
+    color: var(--light-code-text);
+}
+
+body.light-mode #theme-toggle {
+    background-color: #333333;
+    color: #ffffff;
+}

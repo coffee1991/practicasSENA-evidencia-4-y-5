@@ -9,6 +9,8 @@
 </head>
 <body>
 
+    <button id="theme-toggle">Cambiar a Modo Claro ☀️</button>
+
     <div class="container">
         <h1>Comandos Básicos de Git ✨ Local y Remoto</h1>
 
@@ -89,6 +91,35 @@
             </tbody>
         </table>
     </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Cargar el tema guardado en localStorage o usar oscuro por defecto
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        body.classList.add(currentTheme + '-mode'); // Añadir clase inicial
+
+        // Actualizar el texto del botón al cargar la página
+        if (currentTheme === 'dark') {
+            themeToggle.textContent = 'Cambiar a Modo Claro ☀️';
+        } else {
+            themeToggle.textContent = 'Cambiar a Modo Oscuro 🌙';
+        }
+
+
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                body.classList.replace('dark-mode', 'light-mode');
+                themeToggle.textContent = 'Cambiar a Modo Oscuro 🌙';
+                localStorage.setItem('theme', 'light'); // Guardar preferencia
+            } else {
+                body.classList.replace('light-mode', 'dark-mode');
+                themeToggle.textContent = 'Cambiar a Modo Claro ☀️';
+                localStorage.setItem('theme', 'dark'); // Guardar preferencia
+            }
+        });
+    </script>
 
 </body>
 </html>
