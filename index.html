@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos Básicos de Git ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Comandos Básicos de Git ✨ Local y Remoto</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Comando 💻</th>
+                    <th>Tipo (Local/Remoto) 📍</th>
+                    <th>Descripción 📝</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>git init</code></td>
+                    <td>Local 🌱</td>
+                    <td>Inicializa un nuevo repositorio Git local en la carpeta actual. ¡El primer paso!</td>
+                </tr>
+                <tr>
+                    <td><code>git status</code></td>
+                    <td>Local 📊</td>
+                    <td>Muestra el estado de los archivos en tu área de trabajo y staging. Te dice qué ha cambiado.</td>
+                </tr>
+                <tr>
+                    <td><code>git add &lt;archivo&gt;</code><br>o <code>git add .</code></td>
+                    <td>Local 👍</td>
+                    <td>Añade cambios de un archivo específico o de todos los archivos nuevos/modificados al área de staging para el próximo commit.</td>
+                </tr>
+                <tr>
+                    <td><code>git commit -m "mensaje"</code></td>
+                    <td>Local 💾</td>
+                    <td>Guarda los cambios que están en el área de staging en el historial del repositorio con un mensaje descriptivo.</td>
+                </tr>
+                 <tr>
+                    <td><code>git log</code></td>
+                    <td>Local 📜</td>
+                    <td>Muestra el historial de commits de la rama actual. Puedes ver quién hizo qué y cuándo.</td>
+                </tr>
+                 <tr>
+                    <td><code>git branch &lt;nombre&gt;</code></td>
+                    <td>Local 🌿</td>
+                    <td>Crea una nueva rama con el nombre especificado. Útil para trabajar en nuevas funcionalidades aisladamente.</td>
+                </tr>
+                <tr>
+                    <td><code>git switch &lt;nombre_rama&gt;</code><br>o <code>git checkout &lt;nombre_rama&gt;</code></td>
+                    <td>Local 🔄</td>
+                    <td>Cambia a la rama especificada. Te permite moverte entre las diferentes líneas de desarrollo.</td>
+                </tr>
+                 <tr>
+                    <td><code>git clone &lt;url&gt;</code></td>
+                    <td>Remoto 🌎➡️💻</td>
+                    <td>Clona un repositorio existente desde una URL remota a tu máquina local. ¡Obtienes una copia completa!</td>
+                </tr>
+                <tr>
+                    <td><code>git remote add origin &lt;url&gt;</code></td>
+                    <td>Remoto 🔗</td>
+                    <td>Añade una conexión a un repositorio remoto. 'origin' es un nombre común para el repositorio principal.</td>
+                </tr>
+                 <tr>
+                    <td><code>git remote -v</code></td>
+                    <td>Remoto 📡</td>
+                    <td>Muestra las URL de los repositorios remotos configurados para tu repositorio local.</td>
+                </tr>
+                <tr>
+                    <td><code>git fetch origin</code></td>
+                    <td>Remoto 📥</td>
+                    <td>Descarga los objetos y referencias del repositorio remoto ('origin' en este caso), pero no los integra automáticamente en tus ramas locales.</td>
+                </tr>
+                <tr>
+                    <td><code>git pull origin &lt;rama&gt;</code></td>
+                    <td>Remoto 🤝</td>
+                    <td>Descarga los cambios del repositorio remoto ('origin', rama especificada) Y los integra automáticamente en tu rama local actual (fetch + merge/rebase).</td>
+                </tr>
+                <tr>
+                    <td><code>git push origin &lt;rama&gt;</code></td>
+                    <td>Remoto 💻➡️🌎</td>
+                    <td>Sube tus commits locales a la rama especificada en el repositorio remoto ('origin'). ¡Comparte tu trabajo!</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
